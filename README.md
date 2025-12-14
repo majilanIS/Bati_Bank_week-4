@@ -1,3 +1,43 @@
+### Short Action Checklist
+
+- Version the **proxy default definition** (SQL/pseudocode, windows, exceptions).
+- Track **feature provenance** (R, F, M, S computations).
+- Log **model runs, calibration, cohort-level performance** to MLflow.
+- Maintain a **model card** summarizing use, limitations, fairness checks, and monitoring.
+- Keep MLflow artifacts in `mlruns/` and metadata in `mlflow.db`.
+
+---
+
+## task-3 - Feature Engineering
+
+** File: ** `src/data_processing.py`
+**Objective:** Create `processed_transactions.csv` with the proxy target column.
+
+## Task 4 – Proxy Target Variable Engineering
+
+**File:** `src/predict.py`  
+**Objective:** Create `final_dataset.csv` with the proxy target column.
+
+**Steps:**
+
+1. Compute RFM metrics per customer.
+2. Define thresholds for high-risk/disengaged customers.
+3. Create binary target (`1 = high-risk / likely default`, `0 = low-risk`).
+4. Save the processed dataset: `final_dataset.csv`.
+
+---
+
+## Task 5 – Model Training & Tracking
+
+**File:** `src/train.py`  
+**Objective:** Train models and track experiments using MLflow.
+
+**Run Command:**
+
+```bash
+python src/train.py
+```
+=======
 # Bati_Bank_week-4
 
 # Credit Scoring Business Understanding
@@ -50,5 +90,3 @@ Basel II emphasizes accurate measurement, validation, and governance of credit r
 - Produce feature provenance (how R, F, M, S were computed and aggregated).
 - Log model runs, calibration, and cohort-level performance (AUC, calibration, precision@k) to MLflow.
 - Create a model card summarizing intended use, limitations, fairness checks, and monitoring plan.
-
-_End of section._
